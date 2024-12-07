@@ -1,0 +1,86 @@
+.container {
+    flex: 1;
+    border: none; /* Menghilangkan border */
+}
+
+ /* CSS untuk Navbar */
+ .navbar {
+    backdrop-filter: blur(10px); /* Efek blur */
+    background-color: rgba(0, 0, 0, 0.1); /* Hitam dengan transparansi 60% */
+    color: white; /* Warna teks putih agar kontras */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animasi halus */
+}
+
+.navbar a.nav-link {
+    color: white; /* Warna teks putih */
+    transition: color 0.3s ease;
+}
+
+.navbar a.nav-link:hover {
+    color: #FFD700; /* Warna emas saat hover */
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.85); /* Hitam hampir solid */
+}
+
+.jumbotron {
+    padding-top: 6rem;
+    border: none;
+    margin: 0;
+
+}
+/* penambahan */
+.jumbotron h1 {
+    color: white; /* Warna putih */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Bayangan gelap agar teks lebih jelas */
+}
+
+.jumbotron p {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.jumbotron-svg {
+    display: block; /* Menghilangkan ruang di bawah SVG */
+    margin: 0; /* Menghilangkan margin */
+    padding: 0; /* Menghilangkan padding */
+    width: 100%; /* Pastikan SVG mengisi lebar jumbotron */
+    height: auto; /* Menjaga proporsi SVG */
+}
+/* akhir penambahan */
+#about {
+    
+    margin: 0; /* Menghilangkan margin */
+    padding: 0; /* Menghilangkan padding */
+    margin-top: -1px;
+    
+}
+
+#gallery {
+    background-color: #e2edff;
+    min-height: 300px; /* Atur tinggi minimum sesuai kebutuhan */
+    margin-top: -1px;
+}
+
+.card-img-top {
+    width: 100%; /* Mengisi lebar card secara penuh */
+    height: 200px; /* Tinggi tetap untuk semua gambar */
+    object-fit: cover; /* Menjaga proporsi gambar dengan memotong kelebihan */
+    border-radius: 5px; /* Opsional: untuk memberikan sudut melengkung */
+  }
+
+
+#contact {
+    background-color: #ffffff;
+    margin-top: -1px;
+}
+
+footer {
+    background-color: #0D6EFD;
+    margin-top: -1px;
+}
+
+section {
+    padding-top: 5rem;
+}
