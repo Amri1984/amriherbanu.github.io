@@ -33,7 +33,7 @@
                 <a class="nav-link" href="#about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#galerry">Gallery</a>
+                <a class="nav-link" href="#gallery">Gallery</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#contact">Contact</a>
@@ -150,21 +150,33 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-5">
-                    <form>
+                  <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+                    <strong>Terimakasih!</strong> Pesan anda sudah kami terima.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                    <form name="amri-contact-form">
                         <div class="mb-3">
                           <label for="Name" class="form-label">Nama Lengkap</label>
-                          <input type="text" class="form-control" id="name" aria-describedby="name"/>
+                          <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Contoh: Amri Herbanu" name="nama"/>
+                        </div>
+                        <div class="mb-3">
+                          <label for="phone" class="form-label">No Hp</label>
+                          <input type="tel" class="form-control" id="phone" aria-describedby="phone" placeholder="Contoh: 081234567890" name="phone"/>
                         </div>
                         <div class="mb-3">
                           <label for="email" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="email" aria-describedby="email"/>
+                          <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Contoh: nama@email.com" name="email"/>
                         </div>
                         <div class="mb-3">
                             <label for="pesan" class="form-label">Pesan</label>
-                            <textarea class="form-control" id="pesan" rows="3"></textarea>
+                            <textarea class="form-control" id="pesan" rows="3" name="pesan" placeholder="Tulis pesan Anda..."></textarea>
                           </div>
                         
-                        <button type="submit" class="btn btn-primary">Kirim</button>
+                        <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+                        <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                          <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                          <span role="status">Loading...</span>
+                        </button>
                       </form>
                 </div>
             </div>
@@ -184,6 +196,37 @@
 
     <!-- File Js -->
   <script src="script.js"></script>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyKst80Jm917N88TpN4ANtkzOdDOTHtaxZpcNGiV6Wv6avpPlgMESQPfvwyoI8HZ2NDiA/exec';
+    const form = document.forms['amri-contact-form'];
+    // modifikasi kirim loading alert
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlert = document.querySelector('.my-alert');
+    
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      // ketika tombol submit diklik
+      // tampilkan tombol, hilangkan tombol kirim
+      btnLoading.classList.toggle('d-none');
+      btnKirim.classList.toggle('d-none');
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          // tampilkan tombol kirim, hilangkan tombol loading
+          btnLoading.classList.toggle('d-none');
+          btnKirim.classList.toggle('d-none');
+          // tampilkan Alert
+          console.log('Menampilkan alert');
+          myAlert.classList.toggle('d-none');
+          // reset formnya
+          form.reset();
+          console.log('Success!', response);
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 
     
     </body>
