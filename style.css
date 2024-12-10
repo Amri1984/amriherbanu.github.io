@@ -49,13 +49,13 @@
     height: auto; /* Menjaga proporsi SVG */
 }
 /* akhir penambahan */
-#about {
+/* #about {
     
     margin: 0; /* Menghilangkan margin */
-    padding: 0; /* Menghilangkan padding */
-    margin-top: -1px;
+    /* padding: 0; Menghilangkan padding */
+    /* margin-top: -1px; */
     
-}
+/* } */ 
 
 #gallery {
     background-color: #e2edff;
